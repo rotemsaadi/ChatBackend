@@ -1,14 +1,11 @@
 import express from "express";
 import cors from "cors";
+import { RoutesConfiguration } from "./src/configuration/RoutesConfiguration";
 
 const app = express();
 app.use(cors());
-const port = 3001;
+app.use(RoutesConfiguration.url);
 
-app.get("/", (req, res) => {
-  res.send({ rotem: "hello" });
-});
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+app.listen(() => {
+  console.log(`Server listening on port ${RoutesConfiguration.port}`);
 });

@@ -1,4 +1,4 @@
 export const RoutesConfiguration = {
-  url: "/app",
+  url: "/messages",
   port: 3000,
 };
