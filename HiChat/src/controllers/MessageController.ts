@@ -1,12 +1,10 @@
 import { Response, Request } from "express";
 import { StatusCodes } from "../configuration/HttpStatusConfiguration";
 
-export class MessageController {
-  public getMessage(req: Request, res: Response): void {
-    res.status(StatusCodes.OK).json({ message: "Ok" });
-  }
+export const getMessage = (req: Request, res: Response): void => {
+  res.status(StatusCodes.OK).json({ message: "OK" });
+};
 
-  public postMessage(req: Request, res: Response): void {
-    res.status(StatusCodes.CREATED).json({ message: "Created" });
-  }
-}
+export const postMessage = (req: Request, res: Response): void => {
+  res.status(StatusCodes.CREATED).json({ message: "Created" });
+};
