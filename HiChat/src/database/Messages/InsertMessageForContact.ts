@@ -6,20 +6,12 @@ export const InsertMessageForContact = async (
   contactId: string,
   newMessage: IMessage
 ) => {
-  try {
-    const contactUser = await ContactModel.findById(contactId);
-    if (!contactUser) throw new Error("Contact not found");
+  const contactUser = await ContactModel.findById(contactId);
+  const messageModel = new MessageModel(newMessage);
+  await messageModel.save();
 
-    const messageModel = new MessageModel(newMessage);
-    await messageModel.save();
+  contactUser.messages.push(messageModel);
+  await contactUser.save();
 
-    contactUser.messages.push(messageModel);
-    await contactUser.save();
-
-    console.log("Message saved successfully:", messageModel);
-    return messageModel;
-  } catch (error) {
-    console.error("Error saving message:", error);
-    throw error;
-  }
+  return messageModel;
 };

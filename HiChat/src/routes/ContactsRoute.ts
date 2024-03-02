@@ -5,7 +5,7 @@ import { getMessage, postMessage } from "../controllers/MessageController";
 export const contactRouter = Router();
 
 contactRouter.get("/", getContacts);
-contactRouter.get("/:contactId/messages/", getMessage);
-
 contactRouter.post("/", postContact);
+
+contactRouter.get("/:contactId/messages/", getMessage);
 contactRouter.post("/:contactId/messages/", postMessage);
