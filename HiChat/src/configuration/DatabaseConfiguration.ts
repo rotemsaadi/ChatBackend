@@ -1,1 +1,3 @@
-const database_url: string = "database_url";
+export const DatabaseConfiguration = {
+  url: process.env.MONGODB_URI || "mongodb://localhost/mydb",
+};
