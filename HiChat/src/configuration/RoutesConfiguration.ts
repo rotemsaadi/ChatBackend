@@ -1,4 +1,4 @@
 export const RoutesConfiguration = {
-  url: "/messages",
+  contacts_url: "/contacts",
   port: process.env.PORT || 3000,
 };

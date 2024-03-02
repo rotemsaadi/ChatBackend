@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { getMessage, postMessage } from "../controllers/MessageController";
 
-export const router = Router();
+export const messagesRouter = Router();
 
-router.get("/", getMessage);
-router.post("/", postMessage);
+messagesRouter.get(":contactId/", getMessage);
+messagesRouter.post(":contactId/", postMessage);
